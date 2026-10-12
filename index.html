@@ -51,16 +51,20 @@
     <div class="discord" role="region" aria-label="Interactive demo of a Discord bot">
       <div class="d-head"><span class="hash">#</span> bot-demo <small>Live demo</small></div>
       <div class="d-body" id="chat" role="log" aria-live="polite" aria-label="Demo chat"></div>
-      <div class="d-input" aria-hidden="true"><span class="ph" id="typed">Try a command below…</span><span class="caret"></span></div>
+      <form class="d-input" id="demo-form" autocomplete="off">
+        <label for="demo-input" class="sr">Type a bot command</label>
+        <input type="text" id="demo-input" maxlength="80" placeholder="Type a command, e.g. /help" autocomplete="off" autocapitalize="off" spellcheck="false">
+        <button type="submit" aria-label="Send">&#10148;</button>
+      </form>
       <div class="d-chips" id="chips" role="group" aria-label="Try a bot command">
+        <button class="chip" data-cmd="help">/help</button>
         <button class="chip" data-cmd="ticket">/ticket</button>
         <button class="chip" data-cmd="ban">/ban</button>
         <button class="chip" data-cmd="rank">/rank</button>
         <button class="chip" data-cmd="giveaway">/giveaway</button>
-        <button class="chip" data-cmd="verify">/verify</button>
       </div>
     </div>
-    <p class="demo-hint">Tap a command to see the kind of bot I build.</p>
+    <p class="demo-hint">Type a command or tap one. The bot uses what you type, e.g. /ban @someone spamming.</p>
   </div>
 </div></section>
 
