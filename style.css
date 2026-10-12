@@ -143,24 +143,9 @@ h3{font-family:var(--display);font-size:1.25rem;letter-spacing:-.01em;margin-bot
 
 .notes{margin-top:28px;padding-left:20px;color:var(--muted);display:grid;gap:8px;max-width:70ch}
 
-/* form */
+/* request template */
 .request-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
-form{display:grid;gap:20px;background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:32px}
-label,.field-title{display:grid;gap:8px;font-size:.9rem;font-weight:600}
-input[type=text],textarea{background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:12px;padding:13px 14px;font:inherit;font-weight:400;transition:border-color .2s,box-shadow .2s}
-input[type=text]:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
-textarea{min-height:130px;resize:vertical}
-.types{display:flex;flex-wrap:wrap;gap:8px}
-.types label{display:block;font-weight:500}
-.types input{position:absolute;opacity:0;pointer-events:none}
-.types span{display:block;padding:9px 15px;border:1px solid var(--border);border-radius:999px;color:var(--muted);cursor:pointer;transition:all .2s;font-size:.86rem}
-.types span:hover{border-color:var(--accent);color:var(--text)}
-.types input:checked+span{background:var(--accent);border-color:var(--accent);color:#0c0c14;font-weight:600}
-.types input:focus-visible+span{outline:2px solid var(--accent);outline-offset:3px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-#form-status{font-size:.9rem;min-height:1.4em;color:var(--muted)}
-#form-status.ok{color:var(--ok)}#form-status.err{color:var(--danger)}
-.hp{position:absolute;left:-9999px}
+.template{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:28px 30px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem;line-height:1.9;color:var(--muted);white-space:pre-wrap;word-break:break-word}
 
 /* faq */
 .faq{display:grid;gap:12px;max-width:780px;margin-top:36px}
@@ -185,7 +170,7 @@ footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:
   .nav ul.open{display:flex}
   .nav .btn{display:none}
 }
-@media(max-width:560px){.two,.traits{grid-template-columns:1fr}.cta-card{padding:28px}form{padding:22px}}
+@media(max-width:560px){.traits{grid-template-columns:1fr}.cta-card{padding:28px}.template{padding:22px}}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }

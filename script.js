@@ -14,9 +14,10 @@ function showToast(msg) {
 }
 
 /* ---------- copy buttons ---------- */
-$$('[data-copy]').forEach((btn) => btn.addEventListener('click', async () => {
-  try { await navigator.clipboard.writeText(btn.dataset.copy); showToast('Discord ID copied'); }
-  catch { showToast('ID: ' + btn.dataset.copy); }
+$$('[data-copy], [data-copy-target]').forEach((btn) => btn.addEventListener('click', async () => {
+  const text = btn.dataset.copyTarget ? $(btn.dataset.copyTarget).textContent : btn.dataset.copy;
+  try { await navigator.clipboard.writeText(text); showToast(btn.dataset.toast || 'Discord ID copied'); }
+  catch { showToast('Select the text and copy it manually'); }
 }));
 
 /* ---------- scroll progress + scrollspy ---------- */
@@ -208,43 +209,3 @@ const demoObs = new IntersectionObserver((entries) => {
   if (entries[0].isIntersecting) { demoObs.disconnect(); setTimeout(() => typeAndSend('ticket'), reduce ? 0 : 700); }
 }, { threshold: 0.4 });
 demoObs.observe($('.discord'));
-
-/* ---------- request form -> /api/hire (sends a Discord DM) ---------- */
-const form = $('#hire-form');
-if (form) {
-  const status = $('#form-status');
-  const button = $('button[type="submit"]', form);
-  const fallback = ' You can also message me on Discord (ID: 1347129235898237010).';
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    button.disabled = true;
-    status.className = '';
-    status.textContent = 'Sending…';
-    try {
-      const res = await fetch(form.action, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(Object.fromEntries(new FormData(form)))
-      });
-      if (res.ok) {
-        form.reset();
-        status.className = 'ok';
-        status.textContent = 'Request sent. I will get back to you soon.';
-      } else {
-        let reason;
-        try { reason = (await res.json()).error; } catch {}
-        if (!reason) {
-          reason = res.status === 404 || res.status === 405
-            ? 'The /api/hire endpoint was not found. The site must be deployed on Vercel with the api folder included.'
-            : 'The server returned an error (' + res.status + ').';
-        }
-        status.className = 'err';
-        status.textContent = 'Could not send: ' + reason + fallback;
-      }
-    } catch {
-      status.className = 'err';
-      status.textContent = 'Could not reach the server. If you opened this file locally or on GitHub Pages, the form only works on Vercel.' + fallback;
-    }
-    button.disabled = false;
-  });
-}

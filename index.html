@@ -142,40 +142,29 @@
 <section id="request"><div class="container request-grid">
   <div>
     <span class="label">Request</span>
-    <h2>Want my help? Send me a request.</h2>
-    <p class="lead">Fill this in and it comes straight to me on Discord. Share as much detail as you can about your community and what you want built.</p>
+    <h2>Want my help? Send me this.</h2>
+    <p class="lead">Copy the template, fill it in, and send it to me on Discord. It tells me everything I need to decide if I can help.</p>
+    <div class="actions">
+      <button class="btn primary" type="button" data-copy-target="#template" data-toast="Template copied">Copy template</button>
+      <a class="btn" href="https://discord.com/users/1347129235898237010" target="_blank" rel="noopener">Open Discord</a>
+    </div>
+    <p class="demo-hint" style="text-align:left">Replies usually come through Discord.</p>
   </div>
-  <form id="hire-form" action="/api/hire" method="POST">
-    <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <div class="two">
-      <label>Name<input type="text" name="name" autocomplete="name"></label>
-      <label>Contact (Discord / email)<input type="text" name="contact"></label>
-    </div>
-    <fieldset style="border:0;padding:0;min-width:0">
-      <legend class="field-title" style="margin-bottom:10px">Project type *</legend>
-      <div class="types">
-        <label><input type="radio" name="project_type" value="Custom Discord bot" required><span>Custom bot</span></label>
-        <label><input type="radio" name="project_type" value="Moderation / management bot"><span>Moderation bot</span></label>
-        <label><input type="radio" name="project_type" value="Server setup & configuration"><span>Server setup</span></label>
-        <label><input type="radio" name="project_type" value="Bot rework / maintenance"><span>Rework</span></label>
-        <label><input type="radio" name="project_type" value="Other"><span>Other</span></label>
-      </div>
-    </fieldset>
-    <div class="two">
-      <label>What you can offer<input type="text" name="payment" placeholder="Paid rank, channel, shoutout…"></label>
-      <label>Timeline<input type="text" name="timeline" placeholder="e.g. 2 weeks"></label>
-    </div>
-    <label>Project details<textarea name="details" placeholder="What should the bot or server do?"></textarea></label>
-    <button class="btn primary" type="submit" style="justify-content:center">Send request</button>
-    <p id="form-status" role="status"></p>
-  </form>
+  <pre class="template" id="template" tabindex="0" aria-label="Request template">Server name:
+Server type (community, Minecraft, creator, other):
+What you need (custom bot, moderation bot, server setup, rework, other):
+Features you want:
+Discord invite link:
+Deadline (if any):
+What you can offer (paid rank, custom channel, pings, recognition):
+Anything else I should know:</pre>
 </div></section>
 
 <section id="faq" class="band"><div class="container">
   <span class="label">FAQ</span>
   <h2>Questions people ask me.</h2>
   <div class="faq">
-    <details><summary>How do I hire you?</summary><p>Send a request above or message me on Discord and tell me about your server and what you need. I'll let you know if I can take it on.</p></details>
+    <details><summary>How do I hire you?</summary><p>Copy the request template above, fill it in and send it to me on Discord. I'll let you know if I can take it on.</p></details>
     <details><summary>Do you work for free?</summary><p>I don't take money right now. I work in return for perks in your server, like a paid rank, a custom channel, pings or recognition. We agree on it before I start.</p></details>
     <details><summary>What do you need from me?</summary><p>A clear idea of what you want, access to the server for the work, and a way to reach you on Discord.</p></details>
     <details><summary>What can you build?</summary><p>Custom bots with slash commands, moderation and ticket systems, verification, leveling, economies, giveaways, reaction roles, and full server setups.</p></details>
