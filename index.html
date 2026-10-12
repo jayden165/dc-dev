@@ -9,35 +9,67 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0f0f14">
 <title>Mr Savage | Discord Bot &amp; Server Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="progress" id="progress"></div>
+<div class="toast" id="toast" role="status"></div>
+
 <header class="nav"><div class="container">
-  <a class="logo" href="#">Mr Savage</a>
-  <nav aria-label="Main"><ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#pay">Payment</a></li>
-    <li><a href="#request">Request</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul></nav>
-  <a class="btn primary" href="#contact">Get in touch</a>
+  <a class="logo" href="#top"><i></i>Mr Savage</a>
+  <nav aria-label="Main">
+    <ul id="menu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#pay">Payment</a></li>
+      <li><a href="#request">Request</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="nav-right">
+    <a class="btn primary" href="#request">Hire me</a>
+    <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
 </div></header>
 
-<main>
-<section class="hero"><div class="container">
-  <div class="stats"><div><strong>3</strong>years as a bot developer</div></div>
-  <h1>Discord Bot &amp; Server Developer</h1>
-  <p class="lead">I build custom Discord bots, automation systems and fully structured servers for communities, creators and teams.</p>
-  <div class="actions"><a class="btn primary" href="#work">See my work</a><a class="btn" href="#request">Work with me</a></div>
+<main id="top">
+<section class="hero" id="hero"><div class="container">
+  <div class="hero-copy">
+    <div class="stat"><b>3 years</b> building Discord bots</div>
+    <h1>Discord Bot &amp; Server Developer</h1>
+    <p class="lead">I build custom Discord bots, automation systems and fully structured servers for communities, creators and teams.</p>
+    <div class="actions"><a class="btn primary" href="#work">See my work</a><a class="btn" href="#request">Start a project</a></div>
+  </div>
+  <div class="demo-wrap">
+    <div class="discord" role="region" aria-label="Interactive demo of a Discord bot">
+      <div class="d-head"><span class="hash">#</span> bot-demo <small>Live demo</small></div>
+      <div class="d-body" id="chat" role="log" aria-live="polite" aria-label="Demo chat"></div>
+      <div class="d-input" aria-hidden="true"><span class="ph" id="typed">Try a command below…</span><span class="caret"></span></div>
+      <div class="d-chips" id="chips" role="group" aria-label="Try a bot command">
+        <button class="chip" data-cmd="ticket">/ticket</button>
+        <button class="chip" data-cmd="ban">/ban</button>
+        <button class="chip" data-cmd="rank">/rank</button>
+        <button class="chip" data-cmd="giveaway">/giveaway</button>
+        <button class="chip" data-cmd="verify">/verify</button>
+      </div>
+    </div>
+    <p class="demo-hint">Tap a command to see the kind of bot I build.</p>
+  </div>
 </div></section>
 
-<section id="about"><div class="container">
-  <p class="label">About</p>
-  <h2>Hi, I'm Mr Savage. I build bots and servers around your community.</h2>
-  <p class="lead">I create custom Discord bots and server systems tailored to each community. From moderation and ticket systems to leveling, economies, reaction roles, giveaways and full slash-command frameworks, I build tooling that fits the server it is made for.</p>
+<section id="about" class="band"><div class="container about-grid">
+  <div>
+    <span class="label">About</span>
+    <h2>Hi, I'm Mr Savage. I build around your community.</h2>
+    <p class="lead">I create custom Discord bots and server systems tailored to each community. From moderation and ticket systems to leveling, economies, reaction roles, giveaways and full slash-command frameworks, I build tooling that fits the server it is made for.</p>
+  </div>
   <div class="traits">
     <div class="trait"><b>Love building for communities</b><span>Passion</span></div>
     <div class="trait"><b>Committed and very active</b><span>Reliability</span></div>
@@ -47,42 +79,53 @@
 </div></section>
 
 <section id="skills"><div class="container">
-  <p class="label">What I do</p>
+  <span class="label">What I do</span>
   <h2>Everything your server needs to run itself.</h2>
   <div class="grid">
-    <div class="card"><h3>Custom Bots</h3><p>Bespoke Discord bots built with discord.js and slash commands, designed around your community.</p></div>
-    <div class="card"><h3>Automation &amp; Moderation</h3><p>Auto-moderation, tickets, logging, verification and anti-raid systems that run themselves.</p></div>
-    <div class="card"><h3>Engagement Systems</h3><p>Leveling, economies, giveaways, reaction roles and events that keep members coming back.</p></div>
-    <div class="card"><h3>Server Setup</h3><p>Full server structure: channels, roles, permissions and onboarding flows, built from scratch.</p></div>
+    <div class="spot"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4M9 13v1M15 13v1"/></svg></div><h3>Custom Bots</h3><p>Bespoke Discord bots built with discord.js and slash commands, designed around your community.</p></div>
+    <div class="spot"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Automation &amp; Moderation</h3><p>Auto-moderation, tickets, logging, verification and anti-raid systems that run themselves.</p></div>
+    <div class="spot"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg></div><h3>Engagement Systems</h3><p>Leveling, economies, giveaways, reaction roles and events that keep members coming back.</p></div>
+    <div class="spot"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M9 4v16M13 9h4M13 13h4"/></svg></div><h3>Server Setup</h3><p>Full server structure: channels, roles, permissions and onboarding flows, built from scratch.</p></div>
   </div>
 </div></section>
 
-<section id="work"><div class="container">
-  <p class="label">Work</p>
+<section id="work" class="band"><div class="container">
+  <span class="label">Work</span>
   <h2>Bots I have built and shipped.</h2>
-  <div class="projects">
-    <article class="project"><h3>Dragon SMP</h3><p class="sub">Community management bot</p><p>A modular management bot with tickets, moderation and general maintenance commands, serving members.</p><div class="tags"><span class="tag">Moderation</span><span class="tag">Slash commands</span><span class="tag">Tickets</span></div></article>
-    <article class="project"><h3>Corvus SMP</h3><p class="sub">Moderation &amp; management bot</p><p>A private bot with moderation, tickets, staff commands and automation built around a Minecraft community.</p><div class="tags"><span class="tag">Slash commands</span><span class="tag">Moderation</span><span class="tag">Staff commands</span></div></article>
-    <article class="project"><h3>Emerald Eye</h3><p class="sub">MC server linking &amp; general commands</p><p>A security-focused bot handling user verification, moderation and advanced tickets for a small fan-made creator server.</p><div class="tags"><span class="tag">Slash commands</span><span class="tag">Moderation</span><span class="tag">MC linking</span><span class="tag">Custom</span></div></article>
+  <div class="filters" role="group" aria-label="Filter projects">
+    <button class="chip" data-filter="all" aria-pressed="true">All</button>
+    <button class="chip" data-filter="moderation" aria-pressed="false">Moderation</button>
+    <button class="chip" data-filter="tickets" aria-pressed="false">Tickets</button>
+    <button class="chip" data-filter="slash" aria-pressed="false">Slash commands</button>
+    <button class="chip" data-filter="mc" aria-pressed="false">MC linking</button>
+  </div>
+  <div class="projects" id="projects">
+    <article class="spot project" data-tags="moderation tickets slash"><div class="tile" style="background:linear-gradient(135deg,#7c83ff,#b19cff)">D</div><h3>Dragon SMP</h3><p class="sub">Community management bot</p><p>A modular management bot with tickets, moderation and general maintenance commands, serving members.</p><div class="tags"><span class="tag">Moderation</span><span class="tag">Slash commands</span><span class="tag">Tickets</span></div></article>
+    <article class="spot project" data-tags="moderation tickets slash"><div class="tile" style="background:linear-gradient(135deg,#ff8aa0,#ffb36b)">C</div><h3>Corvus SMP</h3><p class="sub">Moderation &amp; management bot</p><p>A private bot with moderation, tickets, staff commands and automation built around a Minecraft community.</p><div class="tags"><span class="tag">Slash commands</span><span class="tag">Moderation</span><span class="tag">Staff commands</span></div></article>
+    <article class="spot project" data-tags="moderation tickets slash mc"><div class="tile" style="background:linear-gradient(135deg,#3ddc97,#7ce8d5)">E</div><h3>Emerald Eye</h3><p class="sub">MC server linking &amp; general commands</p><p>A security-focused bot handling user verification, moderation and advanced tickets for a small fan-made creator server.</p><div class="tags"><span class="tag">Slash commands</span><span class="tag">Moderation</span><span class="tag">MC linking</span><span class="tag">Custom</span></div></article>
   </div>
 </div></section>
 
 <section id="minecraft"><div class="container">
-  <p class="label">Minecraft servers</p>
-  <h2>Need a Minecraft server set up too?</h2>
-  <p class="lead">I also set up, run and manage Minecraft servers. See that work on my Minecraft developer site.</p>
-  <a class="btn" href="https://minecraftdeveloper.vercel.app/" target="_blank" rel="noopener">Visit my Minecraft site</a>
+  <div class="cta-card">
+    <div>
+      <span class="label">Minecraft servers</span>
+      <h2>Need a Minecraft server set up too?</h2>
+      <p class="lead">I also set up, run and manage Minecraft servers. See that work on my Minecraft developer site.</p>
+    </div>
+    <a class="btn primary" href="https://minecraftdeveloper.vercel.app/" target="_blank" rel="noopener">Visit my Minecraft site</a>
+  </div>
 </div></section>
 
-<section id="pay"><div class="container">
-  <p class="label">Payment</p>
+<section id="pay" class="band"><div class="container">
+  <span class="label">Payment</span>
   <h2>I don't take money.</h2>
   <p class="lead">Right now I'm not charging for my work. Instead of cash, I take payment in the form of perks inside your server — things that help me stay active and visible in the communities I build for.</p>
   <div class="grid">
-    <div class="card"><h3>Paid ranks</h3><p>A paid or premium rank in your server, granted for the duration of the project and beyond.</p></div>
-    <div class="card"><h3>Custom channels</h3><p>A dedicated channel set up for me, with the permissions I need. I use these channels to advertise my services.</p></div>
-    <div class="card"><h3>@everyone / @here pings</h3><p>The ability to ping @everyone or @here for announcements related to the work.</p></div>
-    <div class="card"><h3>Recognition</h3><p>Credit as the developer, a staff/dev role, and a shout-out to your community.</p></div>
+    <div class="spot"><h3>Paid ranks</h3><p>A paid or premium rank in your server, granted for the duration of the project and beyond.</p></div>
+    <div class="spot"><h3>Custom channels</h3><p>A dedicated channel set up for me, with the permissions I need. I use these channels to advertise my services.</p></div>
+    <div class="spot"><h3>@everyone / @here pings</h3><p>The ability to ping @everyone or @here for announcements related to the work.</p></div>
+    <div class="spot"><h3>Recognition</h3><p>Credit as the developer, a staff/dev role, and a shout-out to your community.</p></div>
   </div>
   <ul class="notes">
     <li>Exact perks are flexible — we'll agree on what works for your server before I start.</li>
@@ -92,33 +135,40 @@
   </ul>
 </div></section>
 
-<section id="request"><div class="container">
-  <p class="label">Request</p>
-  <h2>Want my help? Send me a request.</h2>
-  <p class="lead">Fill this in and it comes straight to me on Discord. Share as much detail as you can about your community and what you want built.</p>
+<section id="request"><div class="container request-grid">
+  <div>
+    <span class="label">Request</span>
+    <h2>Want my help? Send me a request.</h2>
+    <p class="lead">Fill this in and it comes straight to me on Discord. Share as much detail as you can about your community and what you want built.</p>
+  </div>
   <form id="hire-form" action="/api/hire" method="POST">
     <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <label>Name<input type="text" name="name" autocomplete="name"></label>
-    <label>Contact (Discord / email)<input type="text" name="contact"></label>
-    <label>Project type *
-      <select name="project_type" required>
-        <option value="" disabled selected>Select</option>
-        <option>Custom Discord bot</option>
-        <option>Moderation / management bot</option>
-        <option>Server setup &amp; configuration</option>
-        <option>Bot rework / maintenance</option>
-        <option>Other</option>
-      </select></label>
-    <label>What you can offer<input type="text" name="payment" placeholder="e.g. paid rank, custom channel, shoutout"></label>
-    <label>Timeline<input type="text" name="timeline"></label>
-    <label>Project details<textarea name="details"></textarea></label>
-    <button class="btn primary" type="submit">Send request</button>
+    <div class="two">
+      <label>Name<input type="text" name="name" autocomplete="name"></label>
+      <label>Contact (Discord / email)<input type="text" name="contact"></label>
+    </div>
+    <fieldset style="border:0;padding:0;min-width:0">
+      <legend class="field-title" style="margin-bottom:10px">Project type *</legend>
+      <div class="types">
+        <label><input type="radio" name="project_type" value="Custom Discord bot" required><span>Custom bot</span></label>
+        <label><input type="radio" name="project_type" value="Moderation / management bot"><span>Moderation bot</span></label>
+        <label><input type="radio" name="project_type" value="Server setup & configuration"><span>Server setup</span></label>
+        <label><input type="radio" name="project_type" value="Bot rework / maintenance"><span>Rework</span></label>
+        <label><input type="radio" name="project_type" value="Other"><span>Other</span></label>
+      </div>
+    </fieldset>
+    <div class="two">
+      <label>What you can offer<input type="text" name="payment" placeholder="Paid rank, channel, shoutout…"></label>
+      <label>Timeline<input type="text" name="timeline" placeholder="e.g. 2 weeks"></label>
+    </div>
+    <label>Project details<textarea name="details" placeholder="What should the bot or server do?"></textarea></label>
+    <button class="btn primary" type="submit" style="justify-content:center">Send request</button>
     <p id="form-status" role="status"></p>
   </form>
 </div></section>
 
-<section id="faq"><div class="container">
-  <p class="label">FAQ</p>
+<section id="faq" class="band"><div class="container">
+  <span class="label">FAQ</span>
   <h2>Questions people ask me.</h2>
   <div class="faq">
     <details><summary>How do I hire you?</summary><p>Send a request above or message me on Discord and tell me about your server and what you need. I'll let you know if I can take it on.</p></details>
@@ -131,13 +181,17 @@
 </div></section>
 
 <section id="contact"><div class="container">
-  <p class="label">Contact</p>
-  <h2>Have a bot idea? Message me directly.</h2>
-  <p class="lead">Tell me about your community and what you want to build. I'll get back to you with a plan.</p>
-  <div class="actions">
-    <a class="btn primary" href="https://discord.com/users/1347129235898237010" target="_blank" rel="noopener">Message me on Discord</a>
-    <a class="btn" href="mailto:contact@mr-savage.aleeas.com">Send an email</a>
-    <button class="btn" type="button" data-copy="1347129235898237010">Copy Discord ID</button>
+  <div class="cta-card">
+    <div>
+      <span class="label">Contact</span>
+      <h2>Have a bot idea? Message me directly.</h2>
+      <p class="lead">Tell me about your community and what you want to build. I'll get back to you with a plan.</p>
+    </div>
+    <div class="actions">
+      <a class="btn primary" href="https://discord.com/users/1347129235898237010" target="_blank" rel="noopener">Message me on Discord</a>
+      <a class="btn" href="mailto:contact@mr-savage.aleeas.com">Send an email</a>
+      <button class="btn" type="button" data-copy="1347129235898237010">Copy Discord ID</button>
+    </div>
   </div>
 </div></section>
 </main>
