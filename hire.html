@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Send a project inquiry to hire Mr Savage for a custom Discord bot or server build.">
+<meta name="theme-color" content="#0f0f14">
+<title>Hire — Savage Customs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><div class="container"><a class="logo" href="index.html">SAVAGE CUSTOMS</a><nav aria-label="Main"><ul><li><a href="index.html#about">About</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#work">Work</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="index.html#contact">Contact</a></li></ul></nav><a class="btn primary" href="hire.html">Hire me</a></div></header>
+<main class="page"><div class="container">
+<p class="kicker">Hire me</p>
+<h1>Start a project inquiry</h1>
+<p class="lead">Fill out the form below and it'll come straight to me. Share as much detail as you can about your community and what you want built.</p>
+<form id="hire-form" action="/api/hire" method="POST">
+<input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+<label>Name<input type="text" name="name" autocomplete="name"></label>
+<label>Contact (Discord / email)<input type="text" name="contact"></label>
+<label>Project type *
+<select name="project_type" required>
+<option value="" disabled selected>Select</option>
+<option>Custom Discord bot</option>
+<option>Moderation / management bot</option>
+<option>Server setup &amp; configuration</option>
+<option>Bot rework / maintenance</option>
+<option>Other</option>
+</select></label>
+<label>Payment<input type="text" name="payment" placeholder="e.g. paid rank, custom channel"></label>
+<label>Timeline<input type="text" name="timeline"></label>
+<label>Project details<textarea name="details"></textarea></label>
+<button class="btn primary" type="submit">Send inquiry</button>
+<p id="form-status" role="status"></p>
+</form>
+<div class="actions" style="margin-top:32px"><a class="btn" href="index.html">Back to home</a></div>
+</div></main>
+<footer><div class="container"><span>Mr Savage · Discord Developer</span><span>© 2026 — Built by Savage Customs</span></div></footer>
+<script src="script.js"></script>
+</body>
+</html>
